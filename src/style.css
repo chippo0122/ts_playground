@@ -1,0 +1,40 @@
+h1 {
+  text-align: center;
+}
+
+.insert-part {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+}
+
+#insertSlot {
+  display: block;
+  width: 70%;
+  border: 1px solid #222;
+  border-radius: 5px 0 0 5px;
+  padding: 10px 15px;
+}
+
+.insertBtn {
+  width: 30%;
+  display: block;
+  border: 1px solid #222;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 15px;
+}
+
+.list {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 25px;
+  padding-inline-start: 0;
+}
+
+.list-item {
+  list-style-type: none;
+  padding: 20px 25px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
