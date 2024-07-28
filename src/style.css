@@ -32,9 +32,21 @@ h1 {
 }
 
 .list-item {
+  display: flex;
+  align-items: center;
   list-style-type: none;
   padding: 20px 25px;
   border: 1px solid #555;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.list-item .content {
+  flex-grow: 1;
+}
+
+.list-item a {
+  display: inline-block;
+  text-decoration: none;
+  color: red;
 }

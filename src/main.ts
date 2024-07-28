@@ -1,33 +1,32 @@
 import './style.css';
 
-const arr: Array<string> = ['123', '1332', '123'];
+const insertBtn: HTMLButtonElement | null = document.querySelector('.insertBtn');
+const insertSlot: HTMLInputElement | null = document.querySelector('.insert-slot');
+const items: NodeListOf<HTMLDivElement> | null =  document.querySelectorAll('.list-item');
 
-let greet: Function;
-interface Person {
-    name: string,
-    age: number,
-    hobbit?: string
-};
-
-const tom: Person = {
-    name: 'tom',
-    age: 26,
-    hobbit: 'read'
-}
-const tim: Person = {
-    name: 'tim',
-    age: 20
-}
-const aurora: Person = {
-    name: 'aurora',
-    age: 28,
-    hobbit: 'cycling'
+interface Item {
+    id: number,
+    content: string,
+    status: boolean,
 }
 
-greet = (user: Person) => {
-    console.log(`Hi, i'm ${user.name}, i'm ${user.age} years old. ${user.hobbit ? `i hava a hobbit, it is ${user.hobbit}` : ""}`);
+const todos: Item[] = [];
+
+const insert = (): void => {
+    let text: string = '';
+
+    if(insertSlot) {
+        console.log(insertSlot.value);
+        text = insertSlot.value;
+        console.table(items);
+    }
 }
 
-greet(tom);
-greet(tim);
-greet(aurora);
+const init = (): void => {
+    console.log('init');
+    if(insertBtn) {
+        insertBtn.addEventListener('click', insert)
+    }
+}
+
+init();
