@@ -24,7 +24,7 @@ class ListItem implements Item {
     public getItemDOM(): string {
         const dom = `
             <li class="list-item">
-              <input class="check" type="checkbox" data-id="${this.id}" value="${this.status}">
+              <input class="check" type="checkbox" data-id="${this.id}" ${this.status ? 'checked' : ''}>
               <p class="content">
                 ${this.content}
               </p>
@@ -32,6 +32,10 @@ class ListItem implements Item {
             </li>
         `
         return dom
+    }
+
+    public changeStatus(): void {
+        this.status = !this.status
     }
 }
 
@@ -57,6 +61,8 @@ const insert = (): void => {
             }
 
             storeTodos(new ListItem(item));
+
+            insertSlot.value = ''
         }
     }
 }
@@ -74,7 +80,12 @@ const renderTodos = (): void => {
 }
 
 const changeStatus = (id: string): void => {
-
+    todos.forEach(item => {
+        if(String(item.id) === id) {
+            item.changeStatus()
+        }
+    })
+    renderTodos()
 }
 
 const deleteItem = (id: string): void => {
